@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        .inter-regular{
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings:
+            "slnt" 0;
+        }
+        .inter-medium{
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings:
+            "slnt" 0;
+        }
+        .inter-semibold{
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        font-variation-settings:
+            "slnt" 0;
+        }
+        .inter-bold{
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+        font-variation-settings:
+            "slnt" 0;
+        }
+   
+
+        .inter-black{
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
+        font-style: normal;
+        font-variation-settings:
+            "slnt" 0;
+        }
+
+    </style>
+</head>
+<body class="inter-medium">
+    <div class="container w-11/12 m-auto">
+        <div class="navbar bg-base-100">
+            <div class="navbar-start">
+              
+              <a class="btn btn-ghost text-xl">
+                <img class="w" src="Logo.png" alt="">
+              </a>
+            </div>
+            
+            <div class="navbar-end">
+              <a class="btn btn-sm bg-[#FF1F3D]" href="index.html">Home</a>
+            </div>
+          </div>
+          <hr class="my-2">
+          
+          
+
+
+          <main class="p-6">
+            <section class="mb-8">
+                <h2 class="text-2xl inter-semibold mb-4">Scope of `var`, `let`, and `const`</h2>
+                <p class="mb-4">When working with JavaScript, understanding the differences in scope between <code>var</code>, <code>let</code>, and <code>const</code> is crucial for writing effective and bug-free code. Each of these keywords has unique characteristics that influence how and where a variable is accessible within your code.</p>
+            </section>
+            <section class="mb-8">
+                <h2 class="text-2xl inter-semibold mb-4">var</h2>
+                <h3 class="text-xl inter-semibold mb-2">Scope</h3>
+                <p class="mb-4"><strong>Function-scoped:</strong> Variables declared with <code>var</code> are limited to the function within which they are declared. If declared outside any function, they have global scope.</p>
+                <p class="mb-4"><strong>Hoisting:</strong> Variables declared with <code>var</code> are hoisted to the top of their containing function or the global scope. This means you can reference a <code>var</code> variable before its declaration, but it will be <code>undefined</code> until the line where it's actually defined is reached.</p>
+                <pre class="bg-gray-200 p-4 rounded mb-4"><code>console.log(x); // undefined
+        var x = 5;
+        console.log(x); // 5
+        </code></pre>
+                <h3 class="text-xl inter-semibold mb-2">Use Cases</h3>
+                <p class="mb-4"><strong>Legacy code:</strong> Many older JavaScript codes use <code>var</code>. When maintaining or interacting with such codebases, understanding <code>var</code> is important.</p>
+                <p class="mb-4"><strong>Compatibility:</strong> If you're working in environments where <code>let</code> and <code>const</code> are not supported, <code>var</code> might still be your go-to.</p>
+            </section>
+            <section class="mb-8">
+                <h2 class="text-2xl inter-semibold mb-4">let</h2>
+                <h3 class="text-xl inter-semibold mb-2">Scope</h3>
+                <p class="mb-4"><strong>Block-scoped:</strong> Variables declared with <code>let</code> are limited to the block, statement, or expression where they are declared.</p>
+                <p class="mb-4"><strong>Hoisting:</strong> Like <code>var</code>, <code>let</code> declarations are hoisted to the top of their block, but unlike <code>var</code>, they are not initialized. Accessing them before their declaration results in a <code>ReferenceError</code>.</p>
+                <pre class="bg-gray-200 p-4 rounded mb-4"><code>if (true) {
+        let y = 10;
+        console.log(y); // 10
+        }
+        console.log(y); // ReferenceError: y is not defined
+        </code></pre>
+                <h3 class="text-xl inter-semibold mb-2">Use Cases</h3>
+                <p class="mb-4"><strong>Block-level scope needs:</strong> When you need a variable limited to a specific block, use <code>let</code>.</p>
+                <p class="mb-4"><strong>Loop counters:</strong> <code>let</code> is particularly useful in loops where each iteration needs its own scope.</p>
+                <pre class="bg-gray-200 p-4 rounded mb-4"><code>for (let i = 0; i < 5; i++) {
+        console.log(i);
+        }
+        console.log(i); // ReferenceError: i is not defined
+        </code></pre>
+            </section>
+            <section class="mb-8">
+                <h2 class="text-2xl inter-semibold mb-4">const</h2>
+                <h3 class="text-xl inter-semibold mb-2">Scope</h3>
+                <p class="mb-4"><strong>Block-scoped:</strong> Like <code>let</code>, variables declared with <code>const</code> are limited to the block where they are defined.</p>
+                <p class="mb-4"><strong>Hoisting:</strong> <code>const</code> variables are also hoisted, but not initialized, similar to <code>let</code>.</p>
+                <h3 class="text-xl inter-semibold mb-2">Use Cases</h3>
+                <p class="mb-4"><strong>Constant values:</strong> Use <code>const</code> when you need a variable whose value should not be reassigned.</p>
+                <p class="mb-4"><strong>Immutable references:</strong> While the value a <code>const</code> variable points to cannot be changed, if it points to an object or array, the contents of that object or array can be modified.</p>
+                <pre class="bg-gray-200 p-4 rounded mb-4"><code>const z = 20;
+        z = 25; // TypeError: Assignment to constant variable.
+        
+        const arr = [1, 2, 3];
+        arr.push(4); // This is allowed
+        console.log(arr); // [1, 2, 3, 4]
+        </code></pre>
+            </section>
+            <section class="mb-8">
+                <h2 class="text-2xl inter-semibold mb-4">Use Cases of null and undefined</h2>
+                <h3 class="text-xl inter-semibold mb-2">null</h3>
+                <p class="mb-4"><strong>Intentional absence:</strong> <code>null</code> is an assignment value that represents no value or no object. It's explicitly set by the programmer to indicate "no value."</p>
+                <pre class="bg-gray-200 p-4 rounded mb-4"><code>let foo = null;
+        console.log(foo); // null
+        </code></pre>
+                <p class="mb-4"><strong>Use case:</strong> When you want to clear a variable or reset its value.</p>
+                <pre class="bg-gray-200 p-4 rounded mb-4"><code>let obj = {name: 'Alice'};
+        obj = null; // obj is now explicitly set to have no value
+        </code></pre>
+                <h3 class="text-xl inter-semibold mb-2">undefined</h3>
+                <p class="mb-4"><strong>Default state:</strong> <code>undefined</code> means a variable has been declared but not yet assigned a value.</p>
+                <p class="mb-4"><strong>Automatic assignment:</strong> JavaScript assigns <code>undefined</code> to variables that are declared but not initialized.</p>
+                <pre class="bg-gray-200 p-4 rounded mb-4"><code>let bar;
+        console.log(bar); // undefined
+        </code></pre>
+                <p class="mb-4"><strong>Function arguments:</strong> If a function is called with fewer arguments than parameters, the missing parameters are <code>undefined</code>.</p>
+                <pre class="bg-gray-200 p-4 rounded mb-4"><code>function greet(name) {
+        console.log('Hello ' + name);
+        }
+        greet(); // Hello undefined
+        </code></pre>
+            </section>
+            <section class="mb-8">
+                <h2 class="text-2xl inter-semibold mb-4">What is a REST API?</h2>
+                <h3 class="text-xl inter-semibold mb-2">REST API (Representational State Transfer Application Programming Interface)</h3>
+                <p class="mb-4"><strong>Architecture style:</strong> REST is an architectural style for designing networked applications. It relies on a stateless, client-server, cacheable communications protocol -- the HTTP.</p>
+                <p class="mb-4"><strong>Resource-based:</strong> In a RESTful application, resources (data) are identified by URIs (Uniform Resource Identifiers). Resources can be retrieved, created, modified, and deleted using standard HTTP methods (GET, POST, PUT, DELETE).</p>
+                <h3 class="text-xl inter-semibold mb-2">Characteristics</h3>
+                <p class="mb-4"><strong>Stateless:</strong> Each request from a client to server must contain all the information the server needs to fulfill that request. The server does not store any state about the client session.</p>
+                <p class="mb-4"><strong>Cacheable:</strong> Responses must implicitly or explicitly define themselves as cacheable or not to prevent clients from reusing stale data.</p>
+                <p class="mb-4"><strong>Uniform interface:</strong> Simplifies and decouples the architecture, enabling each part to evolve independently. It is defined by four constraints: resource identification, resource manipulation through representations, self-descriptive messages, and hypermedia as the engine of application state (HATEOAS).</p>
+                <h3 class="text-xl inter-semibold mb-2">Example</h3>
+                <p class="mb-4">A typical REST API endpoint might look like this:</p>
+                <pre class="bg-gray-200 p-4 rounded mb-4"><code>GET /users/123
+        </code></pre>
+                <p class="mb-4"><strong>GET:</strong> HTTP method indicating the action (retrieve data).</p>
+                <p class="mb-4"><strong>/users/123:</strong> URI identifying the specific resource (user with ID 123).</p>
+                <h3 class="text-xl inter-semibold mb-2">Use Cases</h3>
+                <p class="mb-4"><strong>Web services:</strong> REST APIs are commonly used in web services due to their simplicity and scalability.</p>
+                <p class="mb-4"><strong>Microservices:</strong> RESTful principles are a natural fit for building microservices architectures.</p>
+            </section>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
+
